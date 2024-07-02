@@ -1,0 +1,91 @@
+https://github.com/Shubhamprajapatt/tech-hub.git
+
+
+1. setItem():-   at the time of login
+
+   1. It is localstorage method to use set new data in the key and value pair in local storage.
+
+   2. syntax
+      localStorage.setItem(key, value);
+
+      e.g
+      localStorage.setItem("email","durgesh@mailinator.com");
+
+2. getItem():- after the login
+
+   1. It is localstorage method to use get data by the key name from local storage.
+
+   2. syntax
+      localStorage.getItem(key);
+
+      e.g
+      localStorage.getItem("email");
+
+3. removeItem():- at the time of logout
+   
+   1. It is localstorage method to use remove data by the key name from local storage.
+
+   2. syntax
+      localStorage.removeItem(key);
+
+      e.g
+      localStorage.removeItem("email");
+
+
+import {useEffect} from 'react';
+
+useEffect(()=>{
+   function_name();
+},[])//it is call one time on load only
+
+useEffect(()=>{
+   function_name();
+})//infinte time
+
+useEffect(()=>{
+   function_name();
+},[email])///it is call when update the dependency
+
+//email is an Array dependency
+
+
+useReducer:-
+
+1. It is a hooks
+2. it is alernatives of useState
+3. It is useful to manage complex state in any component
+
+how to use
+   import React ,{useReducer} from "react";
+   e.g
+const initialValue=0;
+const reducer=(state,action)=>{
+      switch(action){
+         case "Increament":
+           {
+              return state+1;
+           }
+         case "Decreament":
+           {
+              return state-1;
+           }
+         case "IncBy2":
+           {
+              return state+2;
+           }
+         default:{
+            return state;
+         }
+      }
+}
+   export default function IncDec(){
+      const [state,dispatch]=useReducer(reducer,initialValue);
+      return(
+         <>
+             <button onClick={()=>dispatch("Increament")}>+</button>
+             <span>{state}</span>
+             <button onClick={()=>dispatch("Decreament")}>-</button>
+             <button onClick={()=>dispatch("IncBy2")}>Increament By 2</button>
+         </>
+      )
+   }
